@@ -1,6 +1,6 @@
 ## Summary
 
-This project is just for learning Golang. The contents will be patterns and ideom samples.
+This project is just for learning Golang. The contents will be pattern and idiom samples.
 
 ## NOTES
 
