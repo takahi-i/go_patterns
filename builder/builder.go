@@ -1,3 +1,10 @@
+/**
+ A sample of Builder pattern with Golang based on
+ monochromegane's work (https://github.com/monochromegane/go_design_pattern/tree/master/builder.)
+
+ I made small changes to support cascading build process.
+*/
+
 package builder
 
 type Text interface {
@@ -47,7 +54,7 @@ func (self *textBuilder) MakeItems(items []string) TextBuilder {
 func (self *textBuilder) Build() Text {
 	return &text{
 		title: self.title,
-		content:  self.content,
+		content: self.content,
 		items: self.items,
 	}
 }
