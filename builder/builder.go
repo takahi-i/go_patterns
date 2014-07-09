@@ -7,61 +7,50 @@
 
 package builder
 
-type Text interface {
-	GetString() string;
-}
-
-type text struct {
+type Text struct {
 	title string
 	content string
 	items string
 }
 
-type TextBuilder interface {
-	MakeTitle(title string) TextBuilder
-	MakeContent(title string) TextBuilder
-	MakeItems(items []string) TextBuilder
-	Build() Text
-}
-
-type textBuilder struct {
+type TextBuilder struct {
 	title string
 	content string
 	items string
 }
 
-func NewTextBuilder() TextBuilder {
-	return &textBuilder{}
-}
-
-func (self *textBuilder) MakeTitle(title string) TextBuilder {
+func (self *TextBuilder) MakeTitle(title string) *TextBuilder {
 	self.title = "# " + title + "\n"
 	return self
 }
 
-func (self *textBuilder) MakeContent(str string) TextBuilder {
+func (self *TextBuilder) MakeContent(str string) *TextBuilder {
 	self.content = "## " + str + "\n"
 	return self
 }
 
-func (self *textBuilder) MakeItems(items []string) TextBuilder {
+func (self *TextBuilder) MakeItems(items []string) *TextBuilder {
 	for _, item := range items {
 		self.items += "- " + item + "\n"
 	}
 	return self
 }
 
-func (self *textBuilder) Build() Text {
-	return &text{
+func (self *TextBuilder) Build() *Text {
+	return &Text{
 		title: self.title,
 		content: self.content,
 		items: self.items,
 	}
 }
 
-func (self *text) GetString() string {
+func (self *Text) GetString() string {
 	result := self.title
 	result += self.content
 	result += self.items
 	return result
+}
+
+func NewTextBuilder() *TextBuilder {
+	return &TextBuilder{}
 }
