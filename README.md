@@ -4,4 +4,4 @@ This project is just for learning Golang. The contents will be pattern and idiom
 
 ## NOTES
 
-- I made the bulilder sample following go_design_pattern by monochromegane (https://github.com/monochromegane)
+- I made the bulilder sample following go_design_pattern by @monochromegane (https://github.com/monochromegane)
